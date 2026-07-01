@@ -1,0 +1,14 @@
+# Cấu hình deploy tự động cho Render (https://render.com)
+# Khi kết nối repo GitHub này, Render sẽ đọc file này để dựng dịch vụ.
+services:
+  - type: web
+    name: quan-ly-quan-ca-phe
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false # tự nhập trong dashboard Render (bí mật)
+      - key: JWT_SECRET
+        generateValue: true # Render tự sinh chuỗi bí mật ngẫu nhiên

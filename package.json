@@ -1,0 +1,24 @@
+{
+  "name": "quan-ly-quan-ca-phe",
+  "version": "1.0.0",
+  "description": "Web app quản lý quán cà phê: bán hàng (POS), bàn, thực đơn, báo cáo, đăng nhập",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "seed": "node seed.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.2"
+  }
+}
