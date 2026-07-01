@@ -565,6 +565,13 @@ window.submitChangePassword = async () => {
   }
 };
 
+// ============ Đăng ký Service Worker (PWA) ============
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch((e) => console.warn('SW lỗi:', e));
+  });
+}
+
 // ============ Khởi động ============
 async function boot() {
   if (!getToken()) return showLogin();
