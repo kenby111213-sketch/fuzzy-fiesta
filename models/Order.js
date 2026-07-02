@@ -26,7 +26,7 @@ const OrderSchema = new mongoose.Schema({
   table: { type: mongoose.Schema.Types.ObjectId, ref: 'Table', default: null }, // bàn (null = mang đi)
   paymentMethod: {
     type: String,
-    enum: ['Tiền mặt', 'Chuyển khoản', 'Thẻ', ''],
+    enum: ['Tiền mặt', 'Chuyển khoản', 'Thẻ', 'Ví MoMo', ''],
     default: '',
   },
   note: { type: String, default: '' },

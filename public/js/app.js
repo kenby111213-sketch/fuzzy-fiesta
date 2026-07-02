@@ -295,12 +295,20 @@ window.openPayment = async (id) => {
      <div class="cart-total grand"><span>Cần thu</span><span>${fmt(o.totalAmount)}</span></div>
      <div class="field">
        <label>Hình thức</label>
-       <select id="pay-method">
-         <option>Tiền mặt</option><option>Chuyển khoản</option><option>Thẻ</option>
+       <select id="pay-method" onchange="toggleMomoQr()">
+         <option>Tiền mặt</option><option>Chuyển khoản</option><option>Thẻ</option><option>Ví MoMo</option>
        </select>
+     </div>
+     <div id="momo-qr-box" style="display:none;text-align:center;margin-bottom:10px">
+       <img src="/images/momo-qr.png" alt="Mã QR MoMo" style="max-width:200px" onerror="this.style.display='none';document.getElementById('momo-qr-fallback').style.display='block'">
+       <p id="momo-qr-fallback" class="muted" style="display:none">Chưa có mã QR MoMo — thêm ảnh vào public/images/momo-qr.png</p>
+       <p class="muted">Khách quét mã và chuyển đúng số tiền cần thu ở trên</p>
      </div>
      <button class="btn btn-green" style="width:100%" onclick="confirmPay('${id}')">Xác nhận đã thu tiền</button>`
   );
+};
+window.toggleMomoQr = () => {
+  $('#momo-qr-box').style.display = $('#pay-method').value === 'Ví MoMo' ? 'block' : 'none';
 };
 window.confirmPay = async (id) => {
   try {
